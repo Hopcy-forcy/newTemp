@@ -905,7 +905,7 @@ table td.active {
   width: 100%;
   border-radius: 9999px;
   --tw-bg-opacity: 1;
-  background-color: rgb(255 140 0 / var(--tw-bg-opacity));
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
   --tw-content: '';
   content: var(--tw-content);
 }
@@ -1093,6 +1093,10 @@ table td.active {
   height: 14rem;
 }
 
+.h-\[25vh\] {
+  height: 25vh;
+}
+
 .h-\[40dvh\] {
   height: 40dvh;
 }
@@ -1104,30 +1108,6 @@ table td.active {
 
 .h-full {
   height: 100%;
-}
-
-.h-\[300px\] {
-  height: 300px;
-}
-
-.h-\[100px\] {
-  height: 100px;
-}
-
-.h-\[150px\] {
-  height: 150px;
-}
-
-.h-\[160px\] {
-  height: 160px;
-}
-
-.h-\[20vh\] {
-  height: 20vh;
-}
-
-.h-\[25vh\] {
-  height: 25vh;
 }
 
 .w-16 {
