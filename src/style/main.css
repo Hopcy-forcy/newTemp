@@ -947,10 +947,6 @@ table td.active {
   position: relative;
 }
 
-.sticky {
-  position: sticky;
-}
-
 .-left-\[100vw\] {
   left: -100vw;
 }
@@ -1108,6 +1104,30 @@ table td.active {
 
 .h-full {
   height: 100%;
+}
+
+.h-\[300px\] {
+  height: 300px;
+}
+
+.h-\[100px\] {
+  height: 100px;
+}
+
+.h-\[150px\] {
+  height: 150px;
+}
+
+.h-\[160px\] {
+  height: 160px;
+}
+
+.h-\[20vh\] {
+  height: 20vh;
+}
+
+.h-\[25vh\] {
+  height: 25vh;
 }
 
 .w-16 {
@@ -1599,6 +1619,10 @@ table td.active {
 
   .lg\:h-\[33vh\] {
     height: 33vh;
+  }
+
+  .lg\:h-full {
+    height: 100%;
   }
 
   .lg\:w-\[22vw\] {
