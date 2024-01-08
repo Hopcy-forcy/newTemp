@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webtinix</title>
+    <link rel="stylesheet" href="./src/style/main.css" />
+    <script src="./src/script/main.js" defer></script>
+</head>
+
+<body>
+    <div class="root">
+
+        <!-- open side mobile button : début -->
+        <button onclick="changeClass({id:'sideBar',oldName:'-left-[100vw]',newName:'left-0'})"
+            class=" lg:hidden fixed top-5 left-5 z-40">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="w-7">
+                <path d="M120-240v-80h240v80H120Zm0-200v-80h480v80H120Zm0-200v-80h720v80H120Z" />
+            </svg>
+        </button>
+        <!-- open side mobile button : fin -->
+
+        <!-- side Bar : début -->
+        <menu id="sideBar"
+            class=" transition-[left] z-20 bg-inherit lg:bg-transparent backdrop-blur-3xl  rounded-e-3xl p-6 lg:p-0 fixed -left-[100vw] lg:relative lg:left-0 lg:w-[22vw] md:w-[50vw] w-[80vw] h-full text-white/80 overflow-y-auto ">
+            <figure class="flex py-3  ">
+                <img class="w-28" src="./src/images/Groupe 11.png" alt="">
+                <button onclick="changeClass({id:'sideBar',oldName:'left-0',newName:'-left-[100vw]'})"
+                    class=" lg:hidden  fixed top-5 right-5 w-5 h-5 grid place-content-center rounded-full z-40 border border-white/70">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="w-3 invert">
+                        <path
+                            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg>
+                </button>
+
+            </figure>
+            <div class="bg-white/20 rounded-full mt-2 px-2 py-1.5 flex items-center gap-1.5 text-base cursor-pointer">
+                <img src="./src/images/search.png" alt="" class="w-6">
+                Recherche ici ...
+            </div>
+            <h2 class="my-5 mt-8 text-white">MENU PRINCIPAL</h2>
+            <ul id="menu" class=" ">
+                <li onclick="showTab({id:'HOME'}) " class="active"><img src="./src/images/home.png" style="width: 20px;"/>Home</li>
+                <li onclick="showTab({id:'BDL'}) " class=""><img src="./src/images/note.png" style="width: 20px;"/> Bordereau de
+                    Livraison</li>
+                <li onclick="showTab({id:'CLIENT'})" class=""><img src="./src/images/contacts.png"  style="width: 20px;"/>Clients</li>
+                <li onclick="showTab({id:'FACTURE'})" class=""><img src="./src/images/dollar.png"  style="width: 20px;"/> Facture</li>
+                <li onclick="showTab({id:'REPORTING'})" class=""><img src="./src/images/graph.png" style="width: 20px;" /> Reporting</li>
+            </ul>
+            <h2 class="my-5 mt-10 text-white">PARAMETRES</h2>
+            <ul id="settings">
+                <li onclick="showTab({id:'MESSAGES'}) " class="flex items-center gap-4 text-sm ">
+                    <img  src="./src/images/sms.png"  style="width: 20px;"/> Messages</li>
+                <li onclick="showTab({id:'RC'}) " class="flex items-center gap-4 text-sm "><img
+                        src="./src/images/star.png" style="width: 20px;"/>Retour Clients</li>
+                <li onclick="showTab({id:'REGLAGES'}) " class="flex items-center gap-4 text-sm "><img
+                        src="./src/images/settings.png" style="width: 20px;"/> Réglages</li>
+                <li onclick="showTab({id:'CDA'}) " class="flex items-center gap-4 text-sm "><img
+                        src="./src/images/help.png" style="width: 20px;"/> Centre d'Aide</li>
+            </ul>
+        </menu>
+        <!-- side Bar : fin -->
+
+        <!-- tabview : début -->
+        <main id="tabView" class="  bg-white h-full w-full lg:rounded-3xl overflow-hidden p-5 relative">
+            <div class="bg-white lg:hidden fixed z-[2] h-14 top-0 left-0 w-full"></div>
+            <div class="topBar bg-white/10 backdrop-blur-3xl w-[33%]">
+                <ul class=" hidden sm:flex flex-col items-end justify-center text-sm ">
+                    <li class="font-bold text-black/70 ">User name</li>
+                    <li class="-mt-0.5">username@gmail.com</li>
+                </ul>
+                <button><img src="./src/images/account.png" alt=""></button>
+                <button><img src="./src/images/notification.png" alt=""></button>
+                <button><img src="./src/images/moon.png" alt=""></button>
+            </div>
+
+            <section id="HOME" class="active">
+
+                <h2 class="text-xl sm:text-2xl  text-black/80">Bonjour ,<span class="font-medium text-yellow"> Patrick
+                    </span>!</h2>
+                <p class="text-sm py-2">Voici l'ensemble de vos opérations !</p>
+                <div class=" flex gap-4 my-5 w-fit ">
+                    <div
+                        class="flex flex-col gap-3 p-5 rounded-[25px] border-[1px] border-gray-950 w-[20.93rem] sm:w-[60vw] md:w-[40vw] lg:w-[26vw]">
+                        <h2 class="font-medium text-black/80">Total Clients</h2>
+                        <span class="text-4xl font-semibold">13.468</span>
+                        <p class="flex gap-2">
+                            <img src="./src/images/graph2.png" class="w-5 h-5" alt="">
+                            <span class="text-green-500">+15%</span>
+                            depuis le mois précédent
+                        </p>
+                    </div>
+                    <div
+                        class="flex flex-col gap-3 p-5 rounded-[25px] border-[1px] border-gray-950 w-[20.93rem]  sm:w-[60vw] md:w-[40vw] lg:w-[26vw]">
+                        <h2 class="font-medium text-black/80">Total Clients</h2>
+                        <span class="text-4xl font-semibold">13.468</span>
+                        <p class="flex gap-2 w-fit">
+                            <img src="./src/images/graph2.png" class="w-5 h-5" alt="">
+                            <span class="text-green-500">+15%</span>
+                            depuis le mois précédent
+                        </p>
+                    </div>
+                    <div
+                        class="flex flex-col gap-3 p-5 rounded-[25px] border-[1px] border-gray-950 w-[20.93rem]  sm:w-[60vw] md:w-[40vw] lg:w-[26vw]">
+                        <h2 class="font-medium text-black/80">Total Clients</h2>
+                        <span class="text-4xl font-semibold">13.468</span>
+                        <p class="flex gap-2">
+                            <img src="./src/images/graph2.png" class="w-5 h-5" alt="">
+                            <span class="text-green-500">+15%</span>
+                            depuis le mois précédent
+                        </p>
+                    </div>
+
+                </div>
+                <ul class="home-indi">
+                    <li class="active"></li>
+                    <li></li>
+                </ul>
+                <!-- <div class="flex flex-wrap gap-4 items-start"> -->
+                <div class="dash">
+                    <!-- <aside class="flex flex-col gap-3 border border-gray-950 rounded-[25px] p-5 lg:w-fit w-full col-span-5 row-span-5 "> -->
+                    <aside
+                        class="flex flex-col gap-3 border border-gray-950 rounded-[25px] p-5  col-span-12 lg:col-span-5 row-span-6 ">
+                        <h2 class=" font-medium text-black/80">Ventes effectuées</h2>
+                        <div class="flex justify-center  gap-4 md:gap-10 lg:gap-4 w-full h-full ">
+                            <div class="progressbar  after:h-[90%]"></div>
+                            <div class="progressbar  after:h-[90%]"></div>
+                            <div class="progressbar  after:h-[50%]"></div>
+                            <div class="progressbar  after:h-[30%]"></div>
+                            <div class="progressbar  after:h-[90%]"></div>
+                            <div class="progressbar  after:h-[20%]"></div>
+                            <div class="progressbar  after:h-[90%]"></div>
+                            <div class="progressbar  after:h-[10%]"></div>
+                            <div class="progressbar  after:h-[90%]"></div>
+                            <div class="progressbar  after:h-[90%]"></div>
+                          
+                        </div>
+                    </aside>
+                    <!-- <aside class=" relative flex flex-col gap-3 border border-gray-950 rounded-[25px] p-5 h-fit w-full md:w-[30vw] lg:w-[45vw]  "> -->
+                    <aside
+                        class=" relative flex flex-col gap-3 border border-gray-950 rounded-[25px] p-5 col-span-12 lg:col-span-7 row-span-4 ">
+                        <div class="flex gap-4 absolute right-5 top-5">
+                            <button class="bg-black/10 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="w-5 sm:w-8">
+                                    <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
+                                </svg>
+                            </button>
+                            <button class="bg-black/10 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
+                                    class="w-5 sm:w-8 rotate-180">
+                                    <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h2 class=" font-medium text-black/80">Janvier <span class="text-yellow">2024</span></h2>
+                        <div class="flex w-full overflow-hidden">
+                            <table class="w-full text-center">
+                                <tr class="">
+                                    <th>Dim</th>
+                                    <th>Lun</th>
+                                    <th>Mar</th>
+                                    <th>Mer</th>
+                                    <th>Jeu</th>
+                                    <th>Ven</th>
+                                    <th>Sam</th>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>9</td>
+                                    <td>10</td>
+                                    <td class="active">11</td>
+                                    <td>12</td>
+                                    <td>13</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </aside>
+                    <!-- <aside class="flex flex-col gap-3 border border-gray-950 rounded-[25px] p-5 lg:w-[28vw] w-full  lg:h-[33vh]"> -->
+                    <aside
+                        class="flex flex-col gap-5 border border-gray-950 rounded-[25px] p-5 col-span-12 lg:col-span-5 lg:row-start-7 row-span-5  ">
+                        <h2 class=" font-medium text-black/80">Autres </h2>
+                        <div class="flex gap-5">
+                            <ul class="flex flex-col gap-5">
+                                <li>Utilisateur PC</li>
+                                <li class="text-3xl font-medium">31,12%</li>
+                                <li class="w-8 h-1 sm:h-3 bg-yellow rounded-lg"></li>
+                            </ul>
+                            <ul class="flex flex-col gap-5">
+                                <li>Utilisateur Mobile</li>
+                                <li class="text-3xl font-medium">66,88%</li>
+                                <li class="w-16 h-1 sm:h-3 bg-yellow rounded-lg"></li>
+                            </ul>
+                        </div>
+                    </aside>
+                    <!-- <aside class=" overflow-hidden px-1 pb-5 lg:-mt-[22vh] flex flex-col gap-3 border border-gray-950 rounded-[25px]  w-full lg:w-[45vw]  "> -->
+                    <aside
+                        class=" overflow-hidden px-1 pb-5 flex flex-col gap-3 border border-gray-950 rounded-[25px]  col-span-12 lg:col-span-7 " style="grid-row: span 7 / span 7;">
+                        <h2 class=" font-medium text-black/80 p-2 ">Programme en cours </h2>
+                        <form class="h-[40dvh] overflow-y-auto">
+                            <ul class="flex gap-5 items-center hover:bg-yellow/50 p-3 rounded-2xl overflow-hidden">
+                                <li><input type="checkbox" name="" id="" class="checked:bg-yellow"></li>
+                                <li class="flex items-center gap-5">
+                                    <ul>
+                                        <li class="text-[.8rem] text-black/80 inline">jeu,11 jan</li>
+                                        <li class="text-lg font-medium -mt-1">09:30</li>
+                                    </ul>
+                                    <ul>
+                                        <li class="text-lg font-medium ">Réapprovisionnement</li>
+                                        <li class="-mt-1 text-[.8rem] text-black/80">Patrick Nguya et +20 autres</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="flex gap-5 items-center hover:bg-yellow/50 p-3 rounded-2xl overflow-hidden">
+                                <li><input type="checkbox" name="" id="" class="checked:bg-yellow"></li>
+                                <li class="flex items-center gap-5">
+                                    <ul>
+                                        <li class="text-[.8rem] text-black/80 inline">jeu,11 jan</li>
+                                        <li class="text-lg font-medium -mt-1">09:30</li>
+                                    </ul>
+                                    <ul>
+                                        <li class="text-lg font-medium ">Réapprovisionnement</li>
+                                        <li class="-mt-1 text-[.8rem] text-black/80">Patrick Nguya et +20 autres</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="flex gap-5 items-center hover:bg-yellow/50 p-3 rounded-2xl overflow-hidden">
+                                <li><input type="checkbox" name="" id="" class="checked:bg-yellow"></li>
+                                <li class="flex items-center gap-5">
+                                    <ul>
+                                        <li class="text-[.8rem] text-black/80 inline">jeu,11 jan</li>
+                                        <li class="text-lg font-medium -mt-1">09:30</li>
+                                    </ul>
+                                    <ul>
+                                        <li class="text-lg font-medium ">Réapprovisionnement</li>
+                                        <li class="-mt-1 text-[.8rem] text-black/80">Patrick Nguya et +20 autres</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="flex gap-5 items-center hover:bg-yellow/50 p-3 rounded-2xl overflow-hidden">
+                                <li><input type="checkbox" name="" id="" class="checked:bg-yellow"></li>
+                                <li class="flex items-center gap-5">
+                                    <ul>
+                                        <li class="text-[.8rem] text-black/80 inline">jeu,11 jan</li>
+                                        <li class="text-lg font-medium -mt-1">09:30</li>
+                                    </ul>
+                                    <ul>
+                                        <li class="text-lg font-medium ">Réapprovisionnement</li>
+                                        <li class="-mt-1 text-[.8rem] text-black/80">Patrick Nguya et +20 autres</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="flex gap-5 items-center hover:bg-yellow/50 p-3 rounded-2xl overflow-hidden">
+                                <li><input type="checkbox" name="" id="" class="checked:bg-yellow"></li>
+                                <li class="flex items-center gap-5">
+                                    <ul>
+                                        <li class="text-[.8rem] text-black/80 inline">jeu,11 jan</li>
+                                        <li class="text-lg font-medium -mt-1">09:30</li>
+                                    </ul>
+                                    <ul>
+                                        <li class="text-lg font-medium ">Réapprovisionnement</li>
+                                        <li class="-mt-1 text-[.8rem] text-black/80">Patrick Nguya et +20 autres</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="flex gap-5 items-center hover:bg-yellow/50 p-3 rounded-2xl overflow-hidden">
+                                <li><input type="checkbox" name="" id="" class="checked:bg-yellow"></li>
+                                <li class="flex items-center gap-5">
+                                    <ul>
+                                        <li class="text-[.8rem] text-black/80 inline">jeu,11 jan</li>
+                                        <li class="text-lg font-medium -mt-1">09:30</li>
+                                    </ul>
+                                    <ul>
+                                        <li class="text-lg font-medium ">Réapprovisionnement</li>
+                                        <li class="-mt-1 text-[.8rem] text-black/80">Patrick Nguya et +20 autres</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="flex gap-5 items-center hover:bg-yellow/50 p-3 rounded-2xl overflow-hidden">
+                                <li><input type="checkbox" name="" id="" class="checked:bg-yellow"></li>
+                                <li class="flex items-center gap-5">
+                                    <ul>
+                                        <li class="text-[.8rem] text-black/80 inline">jeu,11 jan</li>
+                                        <li class="text-lg font-medium -mt-1">09:30</li>
+                                    </ul>
+                                    <ul>
+                                        <li class="text-lg font-medium ">Réapprovisionnement</li>
+                                        <li class="-mt-1 text-[.8rem] text-black/80">Patrick Nguya et +20 autres</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </form>
+                    </aside>
+                </div>
+
+            </section>
+            <!-- borderaux de livraison -->
+            <section id="BDL" class="hidden  ">
+                <h2 class="text-xl sm:text-2xl font-medium text-black/80">Bordereaux de Livraison</h2>
+                <p class="text-sm py-3">Chercher dans :</p>
+                <form action="" class=" my-3 sm:my-5 flex gap-4 flex-wrap">
+                    <label for="" class="w-24">
+                        <input type="text" list="jour" placeholder="jour">
+                    </label>
+                    <label for="" class="w-24">
+                        <input type="text" list="Mois" placeholder="Mois">
+                    </label>
+                    <label for="" class="w-24">
+                        <input type="text" list="annee" placeholder="année">
+                    </label>
+                    <label for="" class="w-64">
+                        <input type="text" list="search_client" placeholder="Chercher ou saisir un client">
+                    </label>
+
+                    <datalist name="" id="jour">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </datalist>
+                    <datalist name="" id="Mois">
+                        <option value="Janvier"></option>
+                        <option value="Fevrier"></option>
+                        <option value="Mars"></option>
+                    </datalist>
+                    <datalist name="" id="annee">
+                        <option value="2024"></option>
+                        <option value="2023"></option>
+                        <option value="2022"></option>
+                    </datalist>
+                    <datalist id="search_client" class="bg-green-500">
+                        <option value="Chocolate"></option>
+                        <option value="Coconut"></option>
+                        <option value="Mint"></option>
+                        <option value="Strawberry"></option>
+                        <option value="Vanilla"></option>
+                    </datalist>
+                </form>
+                <!-- slider -->
+                <div class="slider flex gap-4 w-fit h-fit my-3 sm:my-7 ">
+                    <article>
+                        <div class="flex flex-col gap-4 h-56 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>BL n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Client : </span> Bantou Samba</p>
+                            <p><span>Type de bouteille : </span> Poids 12</p>
+                            <p><span>Quantité : </span> 2</p>
+                            <p><span>Total reçu : </span> 12.800 FCFA</p>
+                            <p><span>Notes additionnelles : </span> RAS</p>
+                        </div>
+                        <span class="m-auto text-blue-700 text-xl">...</span>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-56 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>BL n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Client : </span> Bantou Samba</p>
+                            <p><span>Type de bouteille : </span> Poids 12</p>
+                            <p><span>Quantité : </span> 2</p>
+                            <p><span>Total reçu : </span> 12.800 FCFA</p>
+                            <p><span>Notes additionnelles : </span> RAS</p>
+                        </div>
+                        <span class="m-auto text-blue-700 text-xl">...</span>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-56 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>BL n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Client : </span> Bantou Samba</p>
+                            <p><span>Type de bouteille : </span> Poids 12</p>
+                            <p><span>Quantité : </span> 2</p>
+                            <p><span>Total reçu : </span> 12.800 FCFA</p>
+                            <p><span>Notes additionnelles : </span> RAS</p>
+                        </div>
+                        <span class="m-auto text-blue-700 text-xl">...</span>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-56 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>BL n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Client : </span> Bantou Samba</p>
+                            <p><span>Type de bouteille : </span> Poids 12</p>
+                            <p><span>Quantité : </span> 2</p>
+                            <p><span>Total reçu : </span> 12.800 FCFA</p>
+                            <p><span>Notes additionnelles : </span> RAS</p>
+                        </div>
+                        <span class="m-auto text-blue-700 text-xl">...</span>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-56 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>BL n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Client : </span> Bantou Samba</p>
+                            <p><span>Type de bouteille : </span> Poids 12</p>
+                            <p><span>Quantité : </span> 2</p>
+                            <p><span>Total reçu : </span> 12.800 FCFA</p>
+                            <p><span>Notes additionnelles : </span> RAS</p>
+                        </div>
+                        <span class="m-auto text-blue-700 text-xl">...</span>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-56 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>BL n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Client : </span> Bantou Samba</p>
+                            <p><span>Type de bouteille : </span> Poids 12</p>
+                            <p><span>Quantité : </span> 2</p>
+                            <p><span>Total reçu : </span> 12.800 FCFA</p>
+                            <p><span>Notes additionnelles : </span> RAS</p>
+                        </div>
+                        <span class="m-auto text-blue-700 text-xl">...</span>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                </div>
+                <div class=" indicator">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="w-5 sm:w-8">
+                            <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
+                        </svg>
+                    </button>
+                    <ul class=" ">
+                        <li>1</li>
+                        <li class="active">2</li>
+                        <li>3</li>
+                    </ul>
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="w-5 sm:w-8 rotate-180">
+                            <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- client -->
+            <section id="CLIENT" class="hidden">
+                <h2 class="mb-8 lg:mb-0 text-xl sm:text-2xl font-medium text-black/80">Clients</h2>
+                <div
+                    class="slider flex flex-wrap justify-center sm:justify-normal  gap-8 sm:gap-4 w-full h-fit my-3 sm:my-7 ">
+                    <article>
+                        <div class="flex flex-col gap-4 h-48 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">Client n°000123</h2>
+                            <p><span>Nom(s) : </span> Bantou Samba</p>
+                            <p><span>Dénomination : </span> </p>
+                            <p><span>Signe distinctif : </span> </p>
+                            <p><span>Numéro d'enregistrement (cc) : </span> </p>
+                        </div>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-48 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">Client n°000123</h2>
+                            <p><span>Nom(s) : </span> Bantou Samba</p>
+                            <p><span>Dénomination : </span> </p>
+                            <p><span>Signe distinctif : </span> </p>
+                            <p><span>Numéro d'enregistrement (cc) : </span> </p>
+                        </div>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-48 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">Client n°000123</h2>
+                            <p><span>Nom(s) : </span> Bantou Samba</p>
+                            <p><span>Dénomination : </span> </p>
+                            <p><span>Signe distinctif : </span> </p>
+                            <p><span>Numéro d'enregistrement (cc) : </span> </p>
+                        </div>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-48 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">Client n°000123</h2>
+                            <p><span>Nom(s) : </span> Bantou Samba</p>
+                            <p><span>Dénomination : </span> </p>
+                            <p><span>Signe distinctif : </span> </p>
+                            <p><span>Numéro d'enregistrement (cc) : </span> </p>
+                        </div>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-48 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">Client n°000123</h2>
+                            <p><span>Nom(s) : </span> Bantou Samba</p>
+                            <p><span>Dénomination : </span> </p>
+                            <p><span>Signe distinctif : </span> </p>
+                            <p><span>Numéro d'enregistrement (cc) : </span> </p>
+                        </div>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-48 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">Client n°000123</h2>
+                            <p><span>Nom(s) : </span> Bantou Samba</p>
+                            <p><span>Dénomination : </span> </p>
+                            <p><span>Signe distinctif : </span> </p>
+                            <p><span>Numéro d'enregistrement (cc) : </span> </p>
+                        </div>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-48 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">Client n°000123</h2>
+                            <p><span>Nom(s) : </span> Bantou Samba</p>
+                            <p><span>Dénomination : </span> </p>
+                            <p><span>Signe distinctif : </span> </p>
+                            <p><span>Numéro d'enregistrement (cc) : </span> </p>
+                        </div>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-48 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">Client n°000123</h2>
+                            <p><span>Nom(s) : </span> Bantou Samba</p>
+                            <p><span>Dénomination : </span> </p>
+                            <p><span>Signe distinctif : </span> </p>
+                            <p><span>Numéro d'enregistrement (cc) : </span> </p>
+                        </div>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-48 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">Client n°000123</h2>
+                            <p><span>Nom(s) : </span> Bantou Samba</p>
+                            <p><span>Dénomination : </span> </p>
+                            <p><span>Signe distinctif : </span> </p>
+                            <p><span>Numéro d'enregistrement (cc) : </span> </p>
+                        </div>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- Facture -->
+            <section id="FACTURE" class="hidden">
+                <h2 class="mb-8 lg:mb-0 text-xl sm:text-2xl font-medium text-black/80">Factures</h2>
+                <div
+                    class="slider flex flex-wrap justify-center sm:justify-normal  gap-8 sm:gap-4 w-full h-fit my-3 sm:my-7 ">
+                    <article>
+                        <div class="flex flex-col gap-4 h-58 mb-4 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>BL n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Nom de l'article : </span> </p>
+                            <p><span>Quantité de bouteilles : </span> </p>
+                            <p><span>Poids unitaire : </span> </p>
+                            <p><span>Prix unitaire: </span> </p>
+                            <p><span>Total par catégorie: </span> </p>
+                            <p><span>Total : </span> </p>
+                        </div>
+                        <button class="text-blue-700 font-medium">Voir le bordereau de livraison</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-58 mb-4 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>BL n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Nom de l'article : </span> </p>
+                            <p><span>Quantité de bouteilles : </span> </p>
+                            <p><span>Poids unitaire : </span> </p>
+                            <p><span>Prix unitaire: </span> </p>
+                            <p><span>Total par catégorie: </span> </p>
+                            <p><span>Total : </span> </p>
+                        </div>
+                        <button class="text-blue-700 font-medium">Voir le bordereau de livraison</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-58 mb-4 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>BL n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Nom de l'article : </span> </p>
+                            <p><span>Quantité de bouteilles : </span> </p>
+                            <p><span>Poids unitaire : </span> </p>
+                            <p><span>Prix unitaire: </span> </p>
+                            <p><span>Total par catégorie: </span> </p>
+                            <p><span>Total : </span> </p>
+                        </div>
+                        <button class="text-blue-700 font-medium">Voir le bordereau de livraison</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-58 mb-4 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>BL n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Nom de l'article : </span> </p>
+                            <p><span>Quantité de bouteilles : </span> </p>
+                            <p><span>Poids unitaire : </span> </p>
+                            <p><span>Prix unitaire: </span> </p>
+                            <p><span>Total par catégorie: </span> </p>
+                            <p><span>Total : </span> </p>
+                        </div>
+                        <button class="text-blue-700 font-medium">Voir le bordereau de livraison</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-58 mb-4 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>BL n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Nom de l'article : </span> </p>
+                            <p><span>Quantité de bouteilles : </span> </p>
+                            <p><span>Poids unitaire : </span> </p>
+                            <p><span>Prix unitaire: </span> </p>
+                            <p><span>Total par catégorie: </span> </p>
+                            <p><span>Total : </span> </p>
+                        </div>
+                        <button class="text-blue-700 font-medium">Voir le bordereau de livraison</button>
+                    </article>
+                    <article>
+                        <div class="flex flex-col gap-4 h-58 mb-4 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>BL n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Nom de l'article : </span> </p>
+                            <p><span>Quantité de bouteilles : </span> </p>
+                            <p><span>Poids unitaire : </span> </p>
+                            <p><span>Prix unitaire: </span> </p>
+                            <p><span>Total par catégorie: </span> </p>
+                            <p><span>Total : </span> </p>
+                        </div>
+                        <button class="text-blue-700 font-medium">Voir le bordereau de livraison</button>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- Reporting -->
+            <section id="REPORTING" class="hidden">
+                <h2 class="mb-8 lg:mb-0 text-xl sm:text-2xl font-medium text-black/80">Reporting</h2>
+                <div
+                    class="slider flex flex-wrap justify-center sm:justify-normal  gap-8 sm:gap-4 w-full h-fit my-3 sm:my-7 ">
+                    <article class="">
+                        <div class="flex flex-col gap-4 h-36 mb-4 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>Rapport n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Nombre total de bouteilles de gaz: </span> </p>
+                            <p><span>Poids total de bouteilles de gaz: </span> </p>
+                            <p><span>Total par catégorie de bouteilles : </span> </p>
+                        </div>
+                        <span class="m-auto text-blue-700 text-xl">...</span>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article class="">
+                        <div class="flex flex-col gap-4 h-36 mb-4 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>Rapport n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Nombre total de bouteilles de gaz: </span> </p>
+                            <p><span>Poids total de bouteilles de gaz: </span> </p>
+                            <p><span>Total par catégorie de bouteilles : </span> </p>
+                        </div>
+                        <span class="m-auto text-blue-700 text-xl">...</span>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article class="">
+                        <div class="flex flex-col gap-4 h-36 mb-4 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>Rapport n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Nombre total de bouteilles de gaz: </span> </p>
+                            <p><span>Poids total de bouteilles de gaz: </span> </p>
+                            <p><span>Total par catégorie de bouteilles : </span> </p>
+                        </div>
+                        <span class="m-auto text-blue-700 text-xl">...</span>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article class="">
+                        <div class="flex flex-col gap-4 h-36 mb-4 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>Rapport n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Nombre total de bouteilles de gaz: </span> </p>
+                            <p><span>Poids total de bouteilles de gaz: </span> </p>
+                            <p><span>Total par catégorie de bouteilles : </span> </p>
+                        </div>
+                        <span class="m-auto text-blue-700 text-xl">...</span>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article class="">
+                        <div class="flex flex-col gap-4 h-36 mb-4 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>Rapport n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Nombre total de bouteilles de gaz: </span> </p>
+                            <p><span>Poids total de bouteilles de gaz: </span> </p>
+                            <p><span>Total par catégorie de bouteilles : </span> </p>
+                        </div>
+                        <span class="m-auto text-blue-700 text-xl">...</span>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+                    <article class="">
+                        <div class="flex flex-col gap-4 h-36 mb-4 overflow-hidden  ">
+                            <h2 class=" flex justify-between text-base font-semibold  text-black">
+                                <span>Rapport n°000123</span>
+                                <span>18/01/2024</span>
+                            </h2>
+                            <p><span>Nombre total de bouteilles de gaz: </span> </p>
+                            <p><span>Poids total de bouteilles de gaz: </span> </p>
+                            <p><span>Total par catégorie de bouteilles : </span> </p>
+                        </div>
+                        <span class="m-auto text-blue-700 text-xl">...</span>
+                        <button class="text-blue-700 font-medium">Lire tout</button>
+                    </article>
+
+                </div>
+            </section>
+            <!-- message -->
+            <section id="MESSAGES" class="hidden">Messages</section>
+
+            <section id="RC" class="hidden">RC</section>
+            <section id="REGLAGES" class="hidden">REGLAGES</section>
+            <section id="CDA" class="hidden">CDA</section>
+        </main>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .root {
+        @apply w-[100dvw] h-[100dvh] lg:flex lg:p-3.5 gap-5 bg-gray-950 text-base;
+    }
+
+    .topBar {
+        @apply absolute top-5 z-10 right-5 flex justify-end gap-2;
+
+        & button img {
+            @apply w-7
+        }
+    }
+
+    #BDL {
+        & input {
+            @apply outline-none hover:outline-none w-full h-full bg-transparent px-3 py-2 text-center
+        }
+
+        & label {
+            @apply border rounded-full border-black/60
+        }
+
+        & article {
+            @apply w-[75vw] sm:w-[40vw] lg:w-[22vw] h-full rounded-2xl border border-black/60
+        }
+    }
+
+    menu>ul>.active {
+        @apply bg-yellow text-black;
+
+        & img {
+            @apply invert;
+        }
+    }
+
+    menu>ul {
+        @apply flex flex-col gap-1;
+    }
+
+    menu>ul>li {
+        @apply flex items-center gap-2 text-sm cursor-pointer rounded-full px-3 py-2 font-semibold max-h-fit;
+
+        &:hover {
+            @apply active;
+
+            & img {
+                @apply invert
+            }
+        }
+
+        & img {
+            width: 10px !important;
+        }
+
+    }
+
+    #tabView section {
+        @apply h-full pt-11 lg:p-0 overflow-hidden overflow-y-auto;
+
+        & div.slider {
+            @apply overflow-x-auto
+        }
+
+        & article {
+            @apply snap-center p-5 flex flex-col gap-3;
+
+            & p>span {
+                @apply font-semibold
+            }
+        }
+    }
+
+    .indicator {
+        @apply mt-4 h-[5vh] w-full flex justify-center items-center gap-4;
+
+        &>button {
+            @apply font-medium bg-slate-400/20 rounded-full w-5 sm:w-8 h-5 sm:h-8 grid place-content-center;
+        }
+
+        & ul {
+            @apply flex justify-center items-center gap-4;
+
+            & li {
+                @apply font-medium bg-slate-400/20 rounded-full w-6 h-6 grid place-content-center;
+
+                &.active {
+                    @apply bg-yellow p-4
+                }
+            }
+
+
+        }
+    }
+
+    /* client */
+    #CLIENT, #FACTURE, #REPORTING {
+
+        & article {
+            @apply w-[97.5%] sm:w-[46.2vw] lg:w-[24vw] h-full rounded-2xl border border-black/60
+        }
+
+    }
+table th{
+    @apply text-sm font-normal 
+}
+ table td.active{
+    @apply bg-yellow  w-8 h-8 rounded-full;
+ }
+ .home-indi{
+    @apply flex gap-2 justify-center my-5;
+    & li{
+        @apply w-2 h-2 bg-black/50 rounded-full;
+        &.active{
+            @apply bg-yellow
+        }
+    }
+ }
+ .progressbar{
+    @apply bg-gray-950/20 rounded-3xl w-[9%] lg:w-5 h-full  relative overflow-hidden after:content-[''] after:absolute after:bottom-0 after:w-full after:h-[90%] after:rounded-full after:bg-yellow;
+ }
+ .dash{
+    @apply grid gap-4 grid-cols-12  w-full lg:h-[29.5rem]  ;
+    @media (min-width: 1024px) {
+            grid-template-rows: repeat(11, minmax(0, 1fr));
+    }
+     
+ }
+}
+
+
