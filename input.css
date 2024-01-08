@@ -120,7 +120,7 @@ table th{
     }
  }
  .progressbar{
-    @apply bg-gray-950/20 rounded-3xl w-[9%] lg:w-5 h-full  relative overflow-hidden after:content-[''] after:absolute after:bottom-0 after:w-full after:h-[90%] after:rounded-full after:bg-green-500;
+    @apply bg-gray-950/20 rounded-3xl w-[9%] lg:w-5 h-full  relative overflow-hidden after:content-[''] after:absolute after:bottom-0 after:w-full after:h-[90%] after:rounded-full after:bg-yellow ;
  }
  .dash{
     @apply grid gap-4 grid-cols-12  w-full lg:h-[29.5rem]  ;

@@ -905,7 +905,7 @@ table td.active {
   width: 100%;
   border-radius: 9999px;
   --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+  background-color: rgb(255 140 0 / var(--tw-bg-opacity));
   --tw-content: '';
   content: var(--tw-content);
 }
